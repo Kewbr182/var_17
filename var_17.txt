@@ -1,0 +1,52 @@
+#include <iostream> 
+#define _USE_MATH_DEFINES 
+#include <cmath>
+ 
+    using namespace std;
+ 
+class Circle { //Объявляем класс Circle
+ 
+    private:
+ 
+        double x0, y0; //Приватные поля класса
+        double r; //Приватное поле класса
+ 
+    public:
+ 
+        //Сеттеры
+ 
+        void setCircleCenter(double x, double y) { //Задаем координаты центра круга
+            x0 = x;
+            y0 = y;
+        }
+ 
+        void setCircleRadius(double radius) { //Задаем радиус центра круга
+            if (radius > 0) {
+                r = radius;
+            } else {
+                cerr << "Unable to set circle radius!\n";
+            }
+        }
+ 
+        //Геттеры
+    
+        double getCircleRadius() {
+            return r;
+        }
+    
+        //Остальные методы
+    
+        double calcCircleSquare() { //Функция вычисления площади круга
+            if (r > 0) {
+                return M_PI * pow(getCircleRadius(), 2);
+            } else {
+                cerr << "Unable to get circle square!\n";
+            }
+        }
+        
+        //Конструктор по умолчанию
+        
+        Circle(double x = 0.0, double y = 0.0, double radius = 5.0)
+            : x0(x), y0(y), r(radius) {}
+ 
+}
